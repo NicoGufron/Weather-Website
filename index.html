@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+    <head>
+    </head>
+
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel = "manifest" href="manifest.json">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <meta charset="utf-8">
+        <meta name ="description" content="Weather application">
+        <meta name="theme-color" content ="#2F3BA2">    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <link rel ="stylesheet" href="bootstrap/bootstrap.css"> -->
+        <script>
+                        if('serviceWorker' in navigator) {
+                          navigator.serviceWorker
+                                   .register('/mobweb/sw.js')
+                                   .then(function() { console.log("Service Worker Registered"); });
+                        }
+                        window.onload = function(){
+                                // var city = localStorage.getItem("cityName");
+                                var key = "9df8a840d69a2493181ce680e72b344a";
+                                var city = "Surabaya";
+                                
+                                const url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key + "&units=metric";
+                                fetch(url).then((resp)=>resp.json()).then(function(data){
+                                        console.log(data);
+                                        document.getElementById("city").innerHTML = data.name + ", " + data.sys.country;
+                                        document.getElementById("weather").innerHTML = data.weather[0].description;
+                                        document.getElementById("weatherpic").innerHTML = "<img src= icon/" + data.weather[0].icon + ".svg width='100'>";
+                                        document.getElementById("suhu").innerHTML = "<img src='icon/temperature.svg' height='24'/> " + data.main.temp;
+                                        document.getElementById("highsuhu").innerHTML = "<img src='icon/highest-temperature.svg' height='24'/> " + data.main.temp_max;
+                                        document.getElementById("lowsuhu").innerHTML = "<img src='icon/lowest-temperature.svg' height='24'/> " + data.main.temp_min;
+                                }).catch(function(error){
+                                        console.log(error);
+                                });
+                        }
+        </script>
+        <style>
+                #isi{
+                        text-align: center;
+                }
+                p{
+                        font-size: 18px;
+                }
+                .units{
+                        font-size:10px;
+                        display:inline-block;
+                }
+                .table{
+                        border-collapse:separate;
+                        border-spacing:0;
+                        border:none;
+                        table-layout:fixed;
+                        width:100%;
+                }
+        </style>
+    <title>Weather</title>
+        <body>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                        <a class="navbar-brand" href="#">Weather</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                        <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="about.html">About</a>
+                                </li>
+                            </ul>
+                        </div>
+                </nav>
+                <div class="container">
+                        <div class="jumbotron">
+                                <div id="isi">
+                                        <p id="city">hoy</p>
+                                        <p id="weatherpic"></p>
+                                        <hr>
+                                        <table class="table table-hover">
+                                                <tr>        
+                                                        <td>
+                                                                <span id="suhu"></span>
+                                                                <div class="units"><sup>°C</sup></div>
+                                                        </td>
+                                                        <td id="weather"></td> 
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <span id="highsuhu"></span>
+                                                                <div class="units"><sup>°C</sup></div>
+                                                        </td>
+                                                        <td>
+                                                                <span id="lowsuhu"></span>
+                                                                <div class="units"><sup>°C</sup></div>
+                                                        </td>
+                                                </tr>
+                                        </table>
+                                </div>
+                        </div>
+                </div>
+        </body>
+        
+</html>
