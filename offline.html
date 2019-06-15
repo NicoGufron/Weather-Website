@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel = "manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/weather.css">
+    <meta charset="utf-8">
+    <meta name ="description" content="Weather application">
+    <meta name="theme-color" content ="#2F3BA2">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    <title>Weather</title>
+        <body>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                                <a class="navbar-brand" href="#">Weather</a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                                  <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item active">
+                                                <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="about.html">About</a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="#">Install</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                </nav>
+                <div class="container">
+                        <h1>Offline</h1>
+                </div>
+        </body>
+        <script>
+                if('serviceWorker' in navigator) {
+                  navigator.serviceWorker
+                           .register('sw.js')
+                           .then(function() { console.log("Service Worker Registered"); });
+                }
+        </script>
+</html>

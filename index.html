@@ -9,6 +9,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <link rel = "manifest" href="manifest.json">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/weather.css">
         <meta charset="utf-8">
         <meta name ="description" content="Weather application">
         <meta name="theme-color" content ="#2F3BA2">    
@@ -17,7 +18,7 @@
         <script>
                         if('serviceWorker' in navigator) {
                           navigator.serviceWorker
-                                   .register('/mobweb/sw.js')
+                                   .register('sw.js')
                                    .then(function() { console.log("Service Worker Registered"); });
                         }
                         window.onload = function(){
@@ -39,25 +40,6 @@
                                 });
                         }
         </script>
-        <style>
-                #isi{
-                        text-align: center;
-                }
-                p{
-                        font-size: 18px;
-                }
-                .units{
-                        font-size:10px;
-                        display:inline-block;
-                }
-                .table{
-                        border-collapse:separate;
-                        border-spacing:0;
-                        border:none;
-                        table-layout:fixed;
-                        width:100%;
-                }
-        </style>
     <title>Weather</title>
         <body>
                 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -73,24 +55,25 @@
                                 <li class="nav-item">
                                         <a class="nav-link" href="about.html">About</a>
                                 </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="#">Install</a>
+                                </li>
                             </ul>
                         </div>
                 </nav>
                 <div class="container">
-                        <div class="jumbotron">
                                 <div id="isi">
-                                        <p id="city">hoy</p>
+                                        <p id="city"></p>
                                         <p id="weatherpic"></p>
-                                        <hr>
-                                        <table class="table table-hover">
-                                                <tr>        
+                                        <table class="table">
+                                                <tr class="bottom_border">        
                                                         <td>
                                                                 <span id="suhu"></span>
                                                                 <div class="units"><sup>°C</sup></div>
                                                         </td>
                                                         <td id="weather"></td> 
                                                 </tr>
-                                                <tr>
+                                                <tr class="table-default">
                                                         <td>
                                                                 <span id="highsuhu"></span>
                                                                 <div class="units"><sup>°C</sup></div>
@@ -102,7 +85,6 @@
                                                 </tr>
                                         </table>
                                 </div>
-                        </div>
                 </div>
         </body>
         
