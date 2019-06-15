@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+
+<head>
+</head>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<meta charset="utf-8">
+<meta name="description" content="Weather application">
+<meta name="theme-color" content="#2F3BA2">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    .card {
+        flex: 0 0 200px;
+        margin: 30px;
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .card img {
+        max-width: 100%;
+    }
+
+    .card .text {
+        padding: 0 20px 20px;
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    img:hover{
+        transform: scale(1.5);
+        transition-duration: 500ms;
+    }
+</style>
+<!-- <link rel ="stylesheet" href="bootstrap/bootstrap.css"> -->
+
+<title>Weather</title>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Weather</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="about.html">Abou<span class="sr-only">(current)</span>t</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">Settings</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <main class="cards">
+                <article class="card">
+                    <img src="images/aldo.jpg">
+                    <div class="text">
+                        <hr>
+                        <p>Aldo Kris Barlianto</p><br>
+                        <p>26416064</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="images/yoel.jpg">
+                    <div class="text">
+                        <hr>
+                        <p>Yoel Julianto</p><br>
+                        <p>26416070</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="images/nico.jpg">
+                    <div class="text">
+                        <hr>
+                        <p>Nico Gufron</p><br>
+                        <p>26416094</p>
+                    </div>
+                </article>
+            </main>
+            <hr>
+            <main class="cards">
+                <h2>Website kami adalah sebuah website untuk melihat cuaca dari kota yang diinputkan oleh user.</h2>
+            </main>
+        </div>
+    </div>
+</body>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('/mobweb/sw.js')
+            .then(function () { console.log("Service Worker Registered"); });
+    }
+</script>
+
+</html>
