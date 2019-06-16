@@ -9,12 +9,40 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <link rel = "manifest" href="manifest.json">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/weather.css">
+        <link rel="stylesheet" type='text/css' href="css/weather.css"/>
         <meta charset="utf-8">
         <meta name ="description" content="Weather application">
         <meta name="theme-color" content ="#2F3BA2">    
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- <link rel ="stylesheet" href="bootstrap/bootstrap.css"> -->
+        <style>
+               #isi{
+    text-align: center;
+    background-color:#E1E1E1;
+    border-radius:8px;
+    margin-top:5%;
+    padding:5%;
+}
+p{
+    font-size: 18px;
+}
+.units{
+    font-size:13px;
+    display: inline-block;
+}
+.table{
+    border-collapse:separate;
+    margin-left:auto;
+    margin-right:auto;
+    border-spacing:0;
+    table-layout:fixed;
+    width:30%;
+}
+td{
+    border-bottom:1px dotted black;
+}
+
+        </style>
         
     <title>Weather</title>
         <body>
@@ -32,7 +60,7 @@
                                         <a class="nav-link" href="about.html">About</a>
                                 </li>
                                 <li class="nav-item">
-                                        <a class="nav-link" href="#">Install</a>
+                                        <a class= "nav-link" id="install">Install</a>
                                 </li>
                             </ul>
                         </div>
@@ -43,12 +71,14 @@
                                         <p id="weatherpic"></p>
                                         <hr>
                                         <table class="table">
-                                                <tr class="bottom_border">        
+                                                <tr class="table-default">        
                                                         <td>
                                                                 <span id="suhu"></span>
                                                                 <div class="units"><sup>°C</sup></div>
                                                         </td>
-                                                        <td id="weather"></td> 
+                                                        <td>
+                                                                <span id="weather"></span>
+                                                        </td> 
                                                 </tr>
                                                 <tr class="table-default">
                                                         <td>
@@ -60,33 +90,16 @@
                                                                 <div class="units"><sup>°C</sup></div>
                                                         </td>
                                                 </tr>
+                                                <tr class="table-default">
+                                                        <td>
+                                                                <span id="windspeed"></span>
+                                                                <div class="units"><sup>m/s</sup></div>
+                                                        </td>
+                                                </tr>
                                         </table>
                                 </div>
                 </div>
         </body>
-        <script>
-                        if('serviceWorker' in navigator) {
-                          navigator.serviceWorker
-                                   .register('sw.js')
-                                   .then(function() { console.log("Service Worker Registered"); });
-                        }
-                        window.onload = function(){
-                                // var city = localStorage.getItem("cityName");
-                                var key = "9df8a840d69a2493181ce680e72b344a";
-                                var city = "Surabaya";
-                                
-                                const url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key + "&units=metric";
-                                fetch(url).then((resp)=>resp.json()).then(function(data){
-                                        console.log(data);
-                                        document.getElementById("city").innerHTML = data.name + ", " + data.sys.country;
-                                        document.getElementById("weather").innerHTML = data.weather[0].description;
-                                        document.getElementById("weatherpic").innerHTML = "<img src= icon/" + data.weather[0].icon + ".svg width='100'>";
-                                        document.getElementById("suhu").innerHTML = "<img src='icon/temperature.svg' height='24'/> " + data.main.temp;
-                                        document.getElementById("highsuhu").innerHTML = "<img src='icon/highest-temperature.svg' height='24'/> " + data.main.temp_max;
-                                        document.getElementById("lowsuhu").innerHTML = "<img src='icon/lowest-temperature.svg' height='24'/> " + data.main.temp_min;
-                                }).catch(function(error){
-                                        console.log(error);
-                                });
-                        }
-        </script>
+        <script type='text/javascript' src='js/utilities.js'></script>
+        <script type='text/javascript' src='js/fetch.js'></script>
 </html>
