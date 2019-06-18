@@ -9,10 +9,11 @@ window.onload = function(){
             document.getElementById("city").innerHTML = data.name + ", " + data.sys.country;
             document.getElementById("weather").innerHTML = data.weather[0].description;
             document.getElementById("weatherpic").innerHTML = "<img src= icon/" + data.weather[0].icon + ".svg width='100'>";
-            document.getElementById("suhu").innerHTML = "<img src='icon/temperature.svg' height='24'/> " + data.main.temp;
-            document.getElementById("highsuhu").innerHTML = "<img src='icon/highest-temperature.svg' height='24'/> " + data.main.temp_max;
-            document.getElementById("lowsuhu").innerHTML = "<img src='icon/lowest-temperature.svg' height='24'/> " + data.main.temp_min;
-            document.getElementById("windspeed").innerHTML = "<img src='icon/wind-speed.svg' height='24'/> " + data.wind.speed;
+            document.getElementById("suhu").innerHTML = " " + data.main.temp;
+            document.getElementById("highsuhu").innerHTML = " " + data.main.temp_max;
+            document.getElementById("lowsuhu").innerHTML = " " + data.main.temp_min;
+            document.getElementById("windspeed").innerHTML = " " + data.wind.speed;
+            document.getElementById("winddeg").innerHTML = " "+data.wind.deg;
     }).catch(function(error){
             console.log(error);
     });
