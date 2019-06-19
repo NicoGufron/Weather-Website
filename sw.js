@@ -1,6 +1,8 @@
 const CACHE_NAME = "weather";
 const FILES_TO_CACHE =
-    ["offline.html"];
+    [
+        "./offline.html"
+    ];
 
 self.addEventListener('install',(evt)=>{
     evt.waitUntil(
