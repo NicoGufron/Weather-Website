@@ -16,6 +16,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+    .logo {
+        height: 36px;
+        width: 144px;
+    }
     .cards {
         display: flex;
         flex-wrap: wrap;
@@ -44,9 +48,13 @@
         text-align: center;
     }
 
-    img:hover{
+    img:hover {
         transform: scale(1.5);
         transition-duration: 500ms;
+    }
+
+    .jumbotron:hover {
+        background: #EFF9FF;
     }
 </style>
 
@@ -54,7 +62,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Weather</a>
+        <img class="logo" src="images/woosh.png">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
             aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -65,7 +73,10 @@
                     <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="about.html">Abou<span class="sr-only">(current)</span>t</a>
+                    <a class="nav-link" href="about.html">About<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class= "nav-link" id="install">Install</a>
                 </li>
             </ul>
         </div>
