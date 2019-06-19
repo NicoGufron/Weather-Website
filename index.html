@@ -85,6 +85,14 @@
                 <div class="container">
                                 <div id="isi">
                                         <p id="city"></p>
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-primary btn-sm active">
+                                                        <input type="radio" name="options" id="current" autocomplete="off" checked=""> Current
+                                                </label>
+                                                <label class="btn btn-primary btn-sm">
+                                                        <input type="radio" name="options" id="forecast" autocomplete="off"> Forecast
+                                                </label>
+                                        </div>
                                         <center id="weatherpic">
                                         </center>
                                                 <span id="weather"></span>
@@ -92,30 +100,30 @@
                                         <table class="table">
                                                 <tr class="table-default">
                                                         <td class="bottom_border">
-                                                                <img src='icon/thermometer-1.svg' height='24' data-toggle="popover" data-placement="top" data-content="This picture shows how much degree in Celcius." data-original-title="Celcius degree"/> <span id="suhu"></span>
+                                                                <img src='icon/thermometer-1.svg' height='24' data-toggle="popover" data-placement="top" data-content="This icon shows how much degree in Celcius." data-original-title="Celcius degree"/> <span id="suhu"></span>
                                                                 <div class="units"><sup>°C</sup></div>
                                                         </td>
                                                         <td>
-                                                                <img src='icon/thermometer-1.svg' height='24' data-toggle="popover" data-placement="top" data-content="This picture shows how much degree in Fahrenheit" data-original-title="Fahrenheit degree"/><span id="suhuf"></span>
+                                                                <img src='icon/thermometer-1.svg' height='24' data-toggle="popover" data-placement="top" data-content="This icon shows how much degree in Fahrenheit" data-original-title="Fahrenheit degree"/><span id="suhuf"></span>
                                                                 <div class="units"><sup>°F</sup></div>
                                                         </td>
                                                 </tr>
                                                 <tr class="table-default">
                                                         <td>
-                                                                <img src='icon/wind-cone.svg' height='24' data-toggle="popover" data-placement="left" data-content="This picture shows how much wind speed in km per hour" data-original-title="Wind Speed"/><span id="windspeed"></span>
+                                                                <img src='icon/wind-cone.svg' height='24' data-toggle="popover" data-placement="left" data-content="This icon shows how much wind speed in km per hour" data-original-title="Wind Speed"/><span id="windspeed"></span>
                                                                 <div class="units">km/h</div>
                                                         </td>
                                                         <td>
-                                                                <img src="icon/compass.svg" height="24" data-toggle="popover" data-placement="right" data-content="This picture shows where the wind is going on compass" data-original-title="Wind Direction"/><span id="compass"></span>
+                                                                <img src="icon/compass.svg" height="24" data-toggle="popover" data-placement="right" data-content="This icon shows where the wind is going on compass" data-original-title="Wind Direction"/><span id="compass"></span>
                                                         </td>
                                                 </tr>
                                                 <tr class="table-default">
                                                         <td>
-                                                               <img src="icon/drop.svg" height='24' data-toggle="popover" data-placement="left" data-content="This picture shows how much precipitation in percentage" data-original-title="Precipitation"><span id="precipitation"></span>
+                                                               <img src="icon/drop.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows how much precipitation in percentage" data-original-title="Precipitation"><span id="precipitation"></span>
                                                                <div class="units">%</div>
                                                         </td>
                                                         <td>
-                                                                <img src="icon/drop-percentage.svg" height='24' data-toggle="popover" data-placement="right" data-content="This picture shows how much humidity in percentage" data-original-title="Humidity"><span id="humid"></span>
+                                                                <img src="icon/drop-percentage.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows how much humidity in percentage" data-original-title="Humidity"><span id="humid"></span>
                                                                 <div class="units">%</div>
                                                         </td>
                                                 </tr>
@@ -135,6 +143,8 @@
                 $(document).ready(function(){
                         $('[data-toggle="popover"]').popover();
                 });
+                
+                        
         </script>
         <script type='text/javascript' src='js/utilities.js'></script>
         <script type='text/javascript' src='js/fetch.js'></script>
