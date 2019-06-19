@@ -40,7 +40,7 @@
         text-align: center;
     }
 
-    h2 {
+    h3 {
         text-align: center;
     }
 
@@ -67,9 +67,6 @@
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="about.html">Abou<span class="sr-only">(current)</span>t</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="settings.html">Settings</a>
                 </li>
             </ul>
         </div>
@@ -106,17 +103,11 @@
             </main>
             <hr>
             <main class="cards">
-                <h2>Website kami adalah sebuah website untuk melihat cuaca dari kota yang diinputkan oleh user.</h2>
+                <h3>Website kami adalah sebuah website untuk melihat cuaca dari kota yang diinputkan oleh user.</h3>
             </main>
         </div>
     </div>
 </body>
-<script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-            .register('/mobweb/sw.js')
-            .then(function () { console.log("Service Worker Registered"); });
-    }
-</script>
+<script type="text/javascript" src="js/utilities.js"></script>
 
 </html>

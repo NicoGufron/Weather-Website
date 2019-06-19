@@ -2,47 +2,133 @@
 <html>
     <head>
     </head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel = "manifest" href="manifest.json">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/weather.css">
-    <meta charset="utf-8">
-    <meta name ="description" content="Weather application">
-    <meta name="theme-color" content ="#2F3BA2">    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel = "manifest" href="manifest.json">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type='text/css' href="css/weather.css"/>
+        <meta charset="utf-8">
+        <meta name ="description" content="Weather application">
+        <meta name="theme-color" content ="#2F3BA2">    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <link rel ="stylesheet" href="css/weather.css"> -->
+        <style>
+        #isi{
+                text-align: center;
+                background-color:#E1E1E1;
+                border-radius:8px;
+                margin-top:5%;
+                background-repeat: no-repeat;
+                width:100%;
+                margin-left:auto;
+                margin-right: auto;
+                padding-left:15%;
+                padding-right:15%;
+                padding-bottom:5%;
+        }
+        #img{
+                height:4vh;
+        }
+        p{      
+                padding-top:35px;
+                font-size: 18px;
+        }
+        #wado{
+                background-color:#E1E1E1;
+                border-radius:8px;
+                margin-bottom:5%;
+                padding:5%;
+                text-align:center;
+        }       
+        .units{
+                font-size:13px;
+                display: inline-block;
+        }
+        .table{
+                border-collapse:separate;
+                border-spacing:0;
+                table-layout:fixed;
+                width:100%;
+        }
+        td{
+                border-bottom:1px dotted black;
+        }
+        </style>        
     <title>Weather</title>
         <body>
                 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                                <a class="navbar-brand" href="#">Weather</a>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                                  <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse">
-                                    <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item active">
-                                                <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
-                                        </li>
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="about.html">About</a>
-                                        </li>
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="#">Install</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                        <a class="navbar-brand" href="#">Weather</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                        <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="about.html">About</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class= "nav-link" id="install">Install</a>
+                                </li>
+                            </ul>
+                        </div>
                 </nav>
                 <div class="container">
-                        <h1>Offline</h1>
-                </div>
+                                <div id="isi">
+                                        <p id="city"></p>
+                                        <center id="weatherpic">
+                                        </center>
+                                                <span id="weather"></span>
+                                        <hr>
+                                        <table class="table">
+                                                <tr class="table-default">
+                                                        <td class="bottom_border">
+                                                                <img src='icon/thermometer-1.svg' height='24' data-toggle="popover" data-placement="top" data-content="This picture shows how much degree in Celcius." data-original-title="Celcius degree"/> <span id="suhu"></span>
+                                                                <div class="units"><sup>°C</sup></div>
+                                                        </td>
+                                                        <td>
+                                                                <img src='icon/thermometer-1.svg' height='24' data-toggle="popover" data-placement="top" data-content="This picture shows how much degree in Fahrenheit" data-original-title="Fahrenheit degree"/><span id="suhuf"></span>
+                                                                <div class="units"><sup>°F</sup></div>
+                                                        </td>
+                                                </tr>
+                                                <tr class="table-default">
+                                                        <td>
+                                                                <img src='icon/wind-cone.svg' height='24' data-toggle="popover" data-placement="left" data-content="This picture shows how much wind speed in km per hour" data-original-title="Wind Speed"/><span id="windspeed"></span>
+                                                                <div class="units">km/h</div>
+                                                        </td>
+                                                        <td>
+                                                                <img src="icon/compass.svg" height="24" data-toggle="popover" data-placement="right" data-content="This picture shows where the wind is going on compass" data-original-title="Wind Direction"/><span id="compass"></span>
+                                                        </td>
+                                                </tr>
+                                                <tr class="table-default">
+                                                        <td>
+                                                               <img src="icon/drop.svg" height='24' data-toggle="popover" data-placement="left" data-content="This picture shows how much precipitation in percentage" data-original-title="Precipitation"><span id="precipitation"></span>
+                                                               <div class="units">%</div>
+                                                        </td>
+                                                        <td>
+                                                                <img src="icon/drop-percentage.svg" height='24' data-toggle="popover" data-placement="right" data-content="This picture shows how much humidity in percentage" data-original-title="Humidity"><span id="humid"></span>
+                                                                <div class="units">%</div>
+                                                        </td>
+                                                </tr>
+                                        </table>
+                                </div>
+                                <hr>
+                                <div id="wado">
+                                        <label class="">Cari berdasarkan:</label><br>
+                                        <button type="button" class="btn btn-primary" id="qkota">Nama Kota</button>
+                                        <br><br>
+                                        <input type="text" name="kota" class="form-control">
+                                </div>
+                </div>                
         </body>
         <script>
-                if('serviceWorker' in navigator) {
-                  navigator.serviceWorker
-                           .register('sw.js')
-                           .then(function() { console.log("Service Worker Registered"); });
-                }
+        $(document).ready(function(){
+                $('[data-toggle="popover"]').popover();
+        });
         </script>
+        <script type='text/javascript' src='js/utilities.js'></script>
+        <script type='text/javascript' src='js/fetch.js'></script>
 </html>
