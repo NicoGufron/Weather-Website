@@ -61,23 +61,26 @@
                 display: inline-block;
                 }
         }
+        #sunset,#sunrise{
+                font-size:12px;
+        }
         @media only screen and (max-width:320px){
                 .units{
                         font-size:8px;
                         display:inline-block;
                 }
+                #sunset,#sunrise{
+                        font-size:12px;
+                }
         }
-
-        .table {
+        .table{
                 border-collapse: separate;
                 border-spacing: 0;
                 width: 100%;
         }
-
         td{
                 border-bottom: 1px dotted black;
         }
-
         input:hover {
                 border: 2px solid #007bff;
         }
@@ -91,7 +94,6 @@
 <title>Woosh</title>
 
 <body>
-        
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <img class="logo" src="images/woosh.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
