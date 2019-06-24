@@ -4,7 +4,7 @@ window.onload = function(){
     var city = "Surabaya";
     var btn = document.getElementById("qkota");
 
-    var urlapixu = "https://api.apixu.com/v1/current.json?key=" + key + "&q=" + city + "&callback=?";
+    var urlapixu = "https://api.apixu.com/v1/forecast.json?key=" + key + "&q=" + city + "&callback=?";
     fetch(urlapixu).then((resp)=>resp.json()).then(function(data){
             console.log(data);
             document.getElementById("city").innerHTML = data.location.name + ", " + data.location.country;
@@ -18,12 +18,14 @@ window.onload = function(){
             document.getElementById("humid").innerHTML = " " + data.current.humidity;
             document.getElementById("uv").innerHTML = " " + data.current.uv;
             document.getElementById("visual").innerHTML = " " + data.current.vis_km;
+            document.getElementById("sunrise").innerHTML = " " + data.forecast.forecastday[0].astro.sunrise;
+            document.getElementById("sunset").innerHTML = " " + data.forecast.forecastday[0].astro.sunset;
         }).catch(function(error){
             console.log(error);
     });
     btn.onclick = function(){
         city = document.getElementById("kota").value;
-        var urlapixu = "https://api.apixu.com/v1/current.json?key=" + key + "&q=" + city + "&callback=?";
+        var urlapixu = "https://api.apixu.com/v1/forecast.json?key=" + key + "&q=" + city + "&callback=?";
         fetch(urlapixu).then((resp)=>resp.json()).then(function(data){
             console.log(data);
             document.getElementById("city").innerHTML = data.location.name + ", " + data.location.country;
