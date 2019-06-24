@@ -53,6 +53,7 @@
         }
         span{
                 font-size:1em;
+                text-align:center;
         }
 
         @media only screen and (max-width:361px){
@@ -154,15 +155,6 @@
                                                 </tr>
                                                 <tr class="table-default">
                                                         <td style="padding-left:5%; padding-right:5%">
-                                                                <img src='icon/wind-cone.svg' height='24'; padding-right:5% data-toggle="popover" data-placement="top" data-content="This icon shows how much wind speed in km per hour" data-original-title="Wind Speed"/><span id="windspeed"></span>
-                                                                <div class="units">km/h</div>
-                                                        </td>
-                                                        <td style="padding-left:5%; padding-right:5%">
-                                                                <img src="icon/compass.svg" height="24" data-toggle="popover" data-placement="top" data-content="This icon shows where the wind is going on compass" data-original-title="Wind Direction"/><span id="compass"></span>
-                                                        </td>
-                                                </tr>
-                                                <tr class="table-default">
-                                                        <td style="padding-left:5%; padding-right:5%">
                                                                <img src="icon/drop.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows how much precipitation in percentage" data-original-title="Precipitation"><span id="precipitation"></span>
                                                                <div class="units">%</div>
                                                         </td>
@@ -192,6 +184,7 @@
                                                                 </td>
                                                         </tr>
                                         </table>
+                                        <span id="tanggal" data-container = "body" data-toggle="popover" data-placement="bottom" data-content="Date for tomorrow's forecast." data-original-title="Date"></span>
                                 </div>
                                 <hr>
                                 <div id="wado">
