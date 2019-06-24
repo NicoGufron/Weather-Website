@@ -6,8 +6,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/weather.css">
+<link rel="manifest" href="manifest.json">
 <link rel="stylesheet" type='text/css' href="css/weather.css" />
 <meta charset="utf-8">
 <meta name="description" content="Weather application">
@@ -29,7 +30,7 @@
                 padding-bottom: 5%;
         }
 
-        #img {
+        #img{
                 height: 4vh;
         }
 
@@ -50,27 +51,39 @@
                 padding: 5%;
                 text-align: center;
         }
+        span{
+                font-size:1em;
+        }
 
+        @media only screen and (max-width:361px){
         .units {
-                font-size: 13px;
+                font-size: 12px;
                 display: inline-block;
+                }
+        }
+        @media only screen and (max-width:320px){
+                .units{
+                        font-size:8px;
+                        display:inline-block;
+                }
         }
 
         .table {
                 border-collapse: separate;
                 border-spacing: 0;
-                table-layout: fixed;
                 width: 100%;
         }
 
-        td {
+        td{
                 border-bottom: 1px dotted black;
         }
 
         input:hover {
                 border: 2px solid #007bff;
         }
-
+        h2{
+                padding-top:5%;
+        }
         #kota {
                 text-align: center;
         }
@@ -78,6 +91,7 @@
 <title>Woosh</title>
 
 <body>
+        
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <img class="logo" src="images/woosh.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
@@ -99,8 +113,27 @@
                             </ul>
                         </div>
                 </nav>
+                <div id="modalmana" class="modal fade">
+                                <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                                <div class="modal-header">
+                                                        <h5 class="modal-title">Quick tip</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                        <p>Click on the icons down below for more information.</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
                 <div class="container">
-                                <div id="isi">
+                                <div id="isi">        
+                                <h2>Forecast</h2>
                                         <p id="city"></p>
                                         <center id="weatherpic">
                                         </center>
@@ -108,44 +141,54 @@
                                         <hr>
                                         <table class="table">
                                                 <tr class="table-default">
-                                                        <td class="bottom_border">
+                                                        <td style="padding-left:5%; padding-right:5%" class="bottom_border">
                                                                 <img src='icon/thermometer-1.svg' height='24' data-toggle="popover" data-placement="top" data-content="This icon shows how much degree in Celcius." data-original-title="Celcius degree"/> <span id="suhu"></span>
                                                                 <div class="units"><sup>°C</sup></div>
                                                         </td>
-                                                        <td>
+                                                        <td style="padding-left:5%; padding-right:5%">
                                                                 <img src='icon/thermometer-1.svg' height='24' data-toggle="popover" data-placement="top" data-content="This icon shows how much degree in Fahrenheit" data-original-title="Fahrenheit degree"/><span id="suhuf"></span>
                                                                 <div class="units"><sup>°F</sup></div>
                                                         </td>
                                                 </tr>
                                                 <tr class="table-default">
-                                                        <td>
-                                                                <img src='icon/wind-cone.svg' height='24' data-toggle="popover" data-placement="top" data-content="This icon shows how much wind speed in km per hour" data-original-title="Wind Speed"/><span id="windspeed"></span>
+                                                        <td style="padding-left:5%; padding-right:5%">
+                                                                <img src='icon/wind-cone.svg' height='24'; padding-right:5% data-toggle="popover" data-placement="top" data-content="This icon shows how much wind speed in km per hour" data-original-title="Wind Speed"/><span id="windspeed"></span>
                                                                 <div class="units">km/h</div>
                                                         </td>
-                                                        <td>
+                                                        <td style="padding-left:5%; padding-right:5%">
                                                                 <img src="icon/compass.svg" height="24" data-toggle="popover" data-placement="top" data-content="This icon shows where the wind is going on compass" data-original-title="Wind Direction"/><span id="compass"></span>
                                                         </td>
                                                 </tr>
                                                 <tr class="table-default">
-                                                        <td>
+                                                        <td style="padding-left:5%; padding-right:5%">
                                                                <img src="icon/drop.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows how much precipitation in percentage" data-original-title="Precipitation"><span id="precipitation"></span>
                                                                <div class="units">%</div>
                                                         </td>
-                                                        <td>
+                                                        <td style="padding-left:5%; padding-right:5%">
                                                                 <img src="icon/drop-percentage.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows how much humidity in percentage" data-original-title="Humidity"><span id="humid"></span>
                                                                 <div class="units">%</div>
                                                         </td>
                                                 </tr>
                                                 <tr class="table-default">
-                                                        <td>
-                                                               <img src="icon/uv.svg" height='30' data-toggle="popover" data-placement="bottom" data-content="This icon shows how much UV index today. The higher UV index, the more hotter, and vice versa." data-original-title="UV"><span id="uv"></span>
+                                                        <td style="padding-left:5%; padding-right:5%">
+                                                               <img src="icon/uv.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows how much UV index today. The higher UV index, the more hotter, and vice versa." data-original-title="UV"><span id="uv"></span>
                                                                <div class="units"></div>
                                                         </td>
-                                                        <td>
+                                                        <td style="padding-left:5%; padding-right:5%">
                                                                 <img src="icon/tele.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows how far you can see in km." data-original-title="Humidity"><span id="visual"></span>
                                                                 <div class="units">km</div>
                                                         </td>
                                                 </tr>
+                                                <tr class="table-default">
+                                                                <td style="padding-left:5%; padding-right:5%">
+                                                                       <img src="icon/sunrise.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows what time sunrise will occur." data-original-title="Sunrise"><span id="sunrise"></span>
+                                                                       <div class="units"></div>
+                                                                </td>
+                                                                <td style="padding-left:5%; padding-right:5%">
+                                                                        <img src="icon/sunset.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows what time sunset will occur." data-original-title="Sunset"><span id="sunset"></span>
+                                                                        <div class="units"></div>
+                                                                </td>
+                                                        </tr>
                                         </table>
                                 </div>
                                 <hr>
@@ -161,6 +204,7 @@
         <script>
                 $(document).ready(function(){
                         $('[data-toggle="popover"]').popover();
+                        $('#modalmana').modal('show');
                 });
                 
                         
