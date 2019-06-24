@@ -16,13 +16,16 @@ window.onload = function(){
             document.getElementById("compass").innerHTML = " " + data.current.wind_dir;
             document.getElementById("precipitation").innerHTML = " " + data.current.precip_in;
             document.getElementById("humid").innerHTML = " " + data.current.humidity;
+            document.getElementById("uv").innerHTML = " " + data.current.uv;
+            document.getElementById("visual").innerHTML = " " + data.current.vis_km;
         }).catch(function(error){
             console.log(error);
     });
     btn.onclick = function(){
-        console.log(data);
+        city = document.getElementById("kota").value;
         var urlapixu = "https://api.apixu.com/v1/current.json?key=" + key + "&q=" + city + "&callback=?";
         fetch(urlapixu).then((resp)=>resp.json()).then(function(data){
+            console.log(data);
             document.getElementById("city").innerHTML = data.location.name + ", " + data.location.country;
             document.getElementById("weather").innerHTML = data.current.condition.text;
             document.getElementById("weatherpic").innerHTML = "<img src='http:" + data.current.condition.icon + "' width='100'>";
@@ -32,6 +35,8 @@ window.onload = function(){
             document.getElementById("compass").innerHTML = " " + data.current.wind_dir;
             document.getElementById("precipitation").innerHTML = " " + data.current.precip_in;
             document.getElementById("humid").innerHTML = " " + data.current.humidity;
+            document.getElementById("uv").innerHTML = " " + data.current.uv;
+            document.getElementById("visual").innerHTML = " " + data.current.vis_km;
         }).catch(function(error){
             console.log(error);
     })};
