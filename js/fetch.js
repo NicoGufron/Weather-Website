@@ -34,5 +34,5 @@ window.onload = function(){
             document.getElementById("humid").innerHTML = " " + data.current.humidity;
         }).catch(function(error){
             console.log(error);
-    }
+    })};
 }
