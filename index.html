@@ -30,7 +30,7 @@
                 padding-bottom: 5%;
         }
 
-        #img{
+        #img {
                 height: 4vh;
         }
 
@@ -51,43 +51,54 @@
                 padding: 5%;
                 text-align: center;
         }
-        span{
-                font-size:1em;
-                text-align:center;
+
+        span {
+                font-size: 1em;
+                text-align: center;
         }
 
-        @media only screen and (max-width:361px){
-        .units {
+        @media only screen and (max-width:361px) {
+                .units {
+                        font-size: 12px;
+                        display: inline-block;
+                }
+        }
+
+        #sunset,
+        #sunrise {
                 font-size: 12px;
-                display: inline-block;
+        }
+
+        @media only screen and (max-width:320px) {
+                .units {
+                        font-size: 8px;
+                        display: inline-block;
+                }
+
+                #sunset,
+                #sunrise {
+                        font-size: 12px;
                 }
         }
-        #sunset,#sunrise{
-                font-size:12px;
-        }
-        @media only screen and (max-width:320px){
-                .units{
-                        font-size:8px;
-                        display:inline-block;
-                }
-                #sunset,#sunrise{
-                        font-size:12px;
-                }
-        }
-        .table{
+
+        .table {
                 border-collapse: separate;
                 border-spacing: 0;
                 width: 100%;
         }
-        td{
+
+        td {
                 border-bottom: 1px dotted black;
         }
+
         input:hover {
                 border: 2px solid #007bff;
         }
-        h2{
-                padding-top:5%;
+
+        h2 {
+                padding-top: 5%;
         }
+
         #kota {
                 text-align: center;
         }
@@ -113,97 +124,140 @@
                                 <li class="nav-item">
                                         <a class="nav-link" id="install">Install</a>
                                 </li>
-                            </ul>
-                        </div>
-                </nav>
-                <div id="modalmana" class="modal fade">
-                                <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                                <div class="modal-header">
-                                                        <h5 class="modal-title">Quick tip</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                        <p>Click on the icons down below for more information.</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                                </div>
-                                        </div>
+                        </ul>
+                </div>
+        </nav>
+        <div id="modalmana" class="modal fade">
+                <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                                <div class="modal-header">
+                                        <h5 class="modal-title">Quick tip</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                        </button>
+                                </div>
+                                <div class="modal-body">
+                                        <p>Click on the icons down below for more information.</p>
+                                </div>
+                                <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary"
+                                                data-dismiss="modal">Close</button>
                                 </div>
                         </div>
-                <div class="container">
-                                <div id="isi">        
-                                <h2>Forecast</h2>
-                                        <p id="city"></p>
-                                        <center id="weatherpic">
-                                        </center>
-                                                <span id="weather"></span>
-                                        <hr>
-                                        <table class="table">
-                                                <tr class="table-default">
-                                                        <td style="padding-left:5%; padding-right:5%" class="bottom_border">
-                                                                <img src='icon/thermometer-1.svg' height='24' data-toggle="popover" data-placement="top" data-content="This icon shows how much degree in Celcius." data-original-title="Celcius degree"/> <span id="suhu"></span>
-                                                                <div class="units"><sup>°C</sup></div>
-                                                        </td>
-                                                        <td style="padding-left:5%; padding-right:5%">
-                                                                <img src='icon/thermometer-1.svg' height='24' data-toggle="popover" data-placement="top" data-content="This icon shows how much degree in Fahrenheit" data-original-title="Fahrenheit degree"/><span id="suhuf"></span>
-                                                                <div class="units"><sup>°F</sup></div>
-                                                        </td>
-                                                </tr>
-                                                <tr class="table-default">
-                                                        <td style="padding-left:5%; padding-right:5%">
-                                                               <img src="icon/drop.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows how much precipitation in percentage" data-original-title="Precipitation"><span id="precipitation"></span>
-                                                               <div class="units">%</div>
-                                                        </td>
-                                                        <td style="padding-left:5%; padding-right:5%">
-                                                                <img src="icon/drop-percentage.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows how much humidity in percentage" data-original-title="Humidity"><span id="humid"></span>
-                                                                <div class="units">%</div>
-                                                        </td>
-                                                </tr>
-                                                <tr class="table-default">
-                                                        <td style="padding-left:5%; padding-right:5%">
-                                                               <img src="icon/uv.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows how much UV index today. The higher UV index, the more hotter, and vice versa." data-original-title="UV"><span id="uv"></span>
-                                                               <div class="units"></div>
-                                                        </td>
-                                                        <td style="padding-left:5%; padding-right:5%">
-                                                                <img src="icon/tele.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows how far you can see in km." data-original-title="Humidity"><span id="visual"></span>
-                                                                <div class="units">km</div>
-                                                        </td>
-                                                </tr>
-                                                <tr class="table-default">
-                                                                <td style="padding-left:5%; padding-right:5%">
-                                                                       <img src="icon/sunrise.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows what time sunrise will occur." data-original-title="Sunrise"><span id="sunrise"></span>
-                                                                       <div class="units"></div>
-                                                                </td>
-                                                                <td style="padding-left:5%; padding-right:5%">
-                                                                        <img src="icon/sunset.svg" height='24' data-toggle="popover" data-placement="bottom" data-content="This icon shows what time sunset will occur." data-original-title="Sunset"><span id="sunset"></span>
-                                                                        <div class="units"></div>
-                                                                </td>
-                                                        </tr>
-                                        </table>
-                                        <span id="tanggal" data-container = "body" data-toggle="popover" data-placement="bottom" data-content="Date for tomorrow's forecast." data-original-title="Date"></span>
-                                </div>
-                                <hr>
-                                <div id="wado">
-                                        <label class="">Search based on city name:</label><br>
-                                        <br>
-                                        <input type="text" name="kota" id="kota" class="form-control" size="24">
-                                        <br>
-                                        <button type="button" class="btn btn-primary btn-lg" id="qkota">Cari</button>
-                                </div>
-                </div>                
-        </body>
-        <script>
-                $(document).ready(function(){
-                        $('[data-toggle="popover"]').popover();
-                        $('#modalmana').modal('show');
-                });
-                
+                </div>
+        </div>
+        <div class="container">
+                <div id="isi">
+                        <h2>Forecast</h2>
+                        <p id="city"></p>
+                        <center id="weatherpic">
+                        </center>
+                        <span id="weather"></span>
+                        <hr>
+                        <table class="table">
+                                <tr class="table-default">
+                                        <td style="padding-left:5%; padding-right:5%" class="bottom_border">
+                                                <img src='icon/thermometer-1.svg' height='24' data-toggle="popover"
+                                                        data-placement="top"
+                                                        data-content="This icon shows how much degree in Celcius."
+                                                        data-original-title="Celcius degree" /> <span id="suhu"></span>
+                                                <div class="units"><sup>°C</sup></div>
+                                        </td>
+                                        <td style="padding-left:5%; padding-right:5%">
+                                                <img src='icon/thermometer-1.svg' height='24' data-toggle="popover"
+                                                        data-placement="top"
+                                                        data-content="This icon shows how much degree in Fahrenheit"
+                                                        data-original-title="Fahrenheit degree" /><span
+                                                        id="suhuf"></span>
+                                                <div class="units"><sup>°F</sup></div>
+                                        </td>
+                                </tr>
+                                <tr class="table-default">
+                                        <td style="padding-left:5%; padding-right:5%">
+                                                <img src="icon/drop.svg" height='24' data-toggle="popover"
+                                                        data-placement="bottom"
+                                                        data-content="This icon shows how much precipitation in percentage"
+                                                        data-original-title="Precipitation"><span
+                                                        id="precipitation"></span>
+                                                <div class="units">%</div>
+                                        </td>
+                                        <td style="padding-left:5%; padding-right:5%">
+                                                <img src="icon/drop-percentage.svg" height='24' data-toggle="popover"
+                                                        data-placement="bottom"
+                                                        data-content="This icon shows how much humidity in percentage"
+                                                        data-original-title="Humidity"><span id="humid"></span>
+                                                <div class="units">%</div>
+                                        </td>
+                                </tr>
+                                <tr class="table-default">
+                                        <td style="padding-left:5%; padding-right:5%">
+                                                <img src="icon/uv.svg" height='24' data-toggle="popover"
+                                                        data-placement="bottom"
+                                                        data-content="This icon shows how much UV index today. The higher UV index, the more hotter, and vice versa."
+                                                        data-original-title="UV"><span id="uv"></span>
+                                                <div class="units"></div>
+                                        </td>
+                                        <td style="padding-left:5%; padding-right:5%">
+                                                <img src="icon/tele.svg" height='24' data-toggle="popover"
+                                                        data-placement="bottom"
+                                                        data-content="This icon shows how far you can see in km."
+                                                        data-original-title="Humidity"><span id="visual"></span>
+                                                <div class="units">km</div>
+                                        </td>
+                                </tr>
+                                <tr class="table-default">
+                                        <td style="padding-left:5%; padding-right:5%">
+                                                <img src="icon/sunrise.svg" height='24' data-toggle="popover"
+                                                        data-placement="bottom"
+                                                        data-content="This icon shows what time sunrise will occur."
+                                                        data-original-title="Sunrise"><span id="sunrise"></span>
+                                                <div class="units"></div>
+                                        </td>
+                                        <td style="padding-left:5%; padding-right:5%">
+                                                <img src="icon/sunset.svg" height='24' data-toggle="popover"
+                                                        data-placement="bottom"
+                                                        data-content="This icon shows what time sunset will occur."
+                                                        data-original-title="Sunset"><span id="sunset"></span>
+                                                <div class="units"></div>
+                                        </td>
+                                </tr>
+                        </table>
+                        <span id="tanggal" data-container="body" data-toggle="popover" data-placement="bottom"
+                                data-content="Date for tomorrow's forecast." data-original-title="Date"></span>
+                </div>
+                <hr>
+                <div id="wado">
+                        <label class="">Search based on city name:</label><br>
+                        <br>
+                        <input type="text" name="kota" id="kota" class="form-control" size="24">
+                        <br>
+                        <button type="button" class="btn btn-primary btn-lg" id="qkota">Cari</button>
                         
-        </script>
-        <script type='text/javascript' src='js/utilities.js'></script>
-        <script type='text/javascript' src='js/fetch.js'></script>
+                </div>
+        </div>
+</body>
+<script>
+        $(document).ready(function () {
+                $('[data-toggle="popover"]').popover();
+                $('#modalmana').modal('show');
+        });
+
+        var city = document.getElementById("city").innerHTML = localStorage.getItem("City");
+        var city = document.getElementById("weather").innerHTML = localStorage.getItem("Weather");
+        var city = document.getElementById("weatherpic").innerHTML = localStorage.getItem("Weather Picture");
+        var city = document.getElementById("suhu").innerHTML = localStorage.getItem("Max Temp C");
+        var city = document.getElementById("suhuf").innerHTML = localStorage.getItem("Max Temp F");
+        var city = document.getElementById("precipitation").innerHTML = localStorage.getItem("Precipitation");
+        var city = document.getElementById("humid").innerHTML = localStorage.getItem("Humidity");
+        var city = document.getElementById("uv").innerHTML = localStorage.getItem("UV");
+        var city = document.getElementById("visual").innerHTML = localStorage.getItem("Avg Visual");
+        var city = document.getElementById("sunrise").innerHTML = localStorage.getItem("Sunrise");
+        var city = document.getElementById("sunset").innerHTML = localStorage.getItem("Sunset");
+        var city = document.getElementById("tanggal").innerHTML = localStorage.getItem("Date");
+
+
+</script>
+<script type='text/javascript' src='js/utilities.js'></script>
+<script type='text/javascript' src='js/fetch.js'></script>
+
 </html>
