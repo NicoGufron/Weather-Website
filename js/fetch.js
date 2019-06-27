@@ -1,7 +1,7 @@
 
 window.onload = function(){
     var key = "771bec044fb34de2a62164009191506";
-    var city = "Surabaya";
+    var city = document.getElementById("city").innerHTML = localStorage.getItem("City");;
     var btn = document.getElementById("qkota");
 
     var urlapixu = "https://api.apixu.com/v1/forecast.json?key=" + key + "&q=" + city + "&days=7";
